@@ -35,8 +35,7 @@ const getCountry = (country) => {
               <span class="text-success">Paytaxt:</span> ${ data[0].capital[0] }
             </p>
             <p class="card-text">
-              <span class="text-success">Sahəsi: </span>${( data[0].area / 10000
-              ).toFixed(2)}km<sup>2</sup>
+              <span class="text-success">Sahəsi: </span>${data[0].area}km<sup>2</sup>
             </p>
             <p class="card-text">
               <span class="text-success">Dil:</span> ${lang}
