@@ -1,0 +1,30 @@
+.row:nth-of-type(2) .card{
+    width: 80%;
+    min-height: 300px;
+    flex-direction: row;
+    margin: auto;
+}
+.row:nth-of-type(2) .card img{
+    width: 48%;
+}
+
+.row:nth-of-type(2) .card *{
+    padding: 0;
+}
+.row:nth-of-type(2) .card .card-body{
+    width: 50%;
+    padding-left:  20px;
+}
+@media screen and (max-width:926px) {
+    .row:nth-of-type(2) .card{
+        flex-direction: column;
+        width: 100%;
+    }
+    .row:nth-of-type(2) .card img{
+        width: 100%;
+    }
+    .row:nth-of-type(2) .card .card-body{
+        width: 100%;
+        padding-bottom: 20px;
+    }
+}
