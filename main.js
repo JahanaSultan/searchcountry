@@ -2,6 +2,9 @@ let borders= document.querySelector(".row:nth-of-type(3)")
 let countryinfo=document.querySelector(".row:nth-of-type(2)")
 let searchInput=document.querySelector("input")
 let button=document.querySelector(".btn")
+let borderHeading=document.querySelector(".text-border")
+
+
 
 // *Inputun Ici bos deyilse olkeni axtarir
 
@@ -53,6 +56,7 @@ const getCountry = (country) => {
       })
       .catch((error) => {
         borders.innerHTML=""
+        borderHeading.innerHTML=""
         countryinfo.innerHTML = `<h1 class="text-danger text-center">Nəticə Tapılmadı</h1>`;
       });
 };
@@ -63,6 +67,8 @@ const getBorders = (countries) => {
     fetch("https://restcountries.com/v3.1/alpha?codes=" + countries)
       .then((response) => response.json())
       .then((data) => {
+        if(data){
+            borderHeading.innerText="Sərhədləri"
         borders.innerHTML=""
         data.map((e) => {
           borders.innerHTML += `
@@ -78,6 +84,10 @@ const getBorders = (countries) => {
           </div>
         </div>
           `;
-        });
+        })}
+        else{
+           
+            borders.innerHTML=`<h1 class="text-danger text-center">Sərhədi Yoxdur</h1>`
+        }
       });
 };
