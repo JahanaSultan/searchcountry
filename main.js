@@ -21,7 +21,11 @@ const getCountry = (country) => {
     fetch("https://restcountries.com/v3.1/name/" + country)
       .then((response) => response.json())
       .then((data) => {
-        getBorders(data[0].borders.toString());
+        if(data[0].borders)
+        {
+        getBorders(data[0].borders.toString())
+        }
+
         let lang = Object.values(data[0].languages).map((lang) => lang);
         let currencyKey = Object.keys(data[0].currencies)[0];
         let currency = data[0].currencies[currencyKey];
